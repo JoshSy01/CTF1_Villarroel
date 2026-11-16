@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURA — Alta Costura Esencial</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        apple: {
+                            bg: '#000000',
+                            dark: '#ffffff',
+                            muted: '#86868b',
+                            border: '#222222',
+                            card: '#0a0a0a'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000000;
+            color: #f5f5f7;
+            -webkit-font-smoothing: antialiased;
+        }
+        /* Estilo limpio para los sliders de audio */
+        input[type="range"] {
+            -webkit-appearance: none;
+            appearance: none;
+            background: #222222;
+            height: 4px;
+            border-radius: 2px;
+            cursor: pointer;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #ffffff;
+            cursor: pointer;
+            transition: transform 0.15s ease;
+        }
+        input[type="range"]::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+        }
+        input[type="range"]::-moz-range-thumb {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #ffffff;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="bg-apple-bg text-apple-dark antialiased selection:bg-white selection:text-black">
+
+    <!-- Header / Navbar fijo -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-apple-bg/90 backdrop-blur-md border-b border-apple-border transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <!-- Logo Tipográfico -->
+            <a href="#" class="text-lg font-semibold tracking-widest uppercase text-white">A U R A</a>
+
+            <!-- Navegación Escritorio -->
+            <nav class="hidden md:flex items-center space-x-8 text-xs font-medium tracking-wider text-apple-muted">
+                <a href="#esencia" class="hover:text-white transition-colors">ESENCIA</a>
+                <a href="#filosofia" class="hover:text-white transition-colors">FILOSOFÍA</a>
+                <a href="#boutiques" class="hover:text-white transition-colors">BOUTIQUES</a>
+                <a href="#sostenibilidad" class="hover:text-white transition-colors">SOSTENIBILIDAD</a>
+                <a href="#contacto" class="hover:text-white transition-colors">CONTACTO</a>
+                <a href="#musica" class="hover:text-white transition-colors flex items-center gap-1.5 text-white/90">
+                    <span id="nav-audio-dot" class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                    MÚSICA
+                </a>
+            </nav>
+
+            <!-- Menú Botón Móvil -->
+            <button id="menu-btn" class="md:hidden text-white focus:outline-none p-2" aria-label="Abrir menú">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 8h16M4 16h16"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Menú Desplegable Móvil -->
+        <div id="mobile-menu" class="hidden md:hidden bg-apple-bg border-b border-apple-border px-6 py-6 space-y-4">
+            <a href="#esencia" class="block text-sm font-medium text-apple-muted hover:text-white mobile-link">ESENCIA</a>
+            <a href="#filosofia" class="block text-sm font-medium text-apple-muted hover:text-white mobile-link">FILOSOFÍA</a>
+            <a href="#boutiques" class="block text-sm font-medium text-apple-muted hover:text-white mobile-link">BOUTIQUES</a>
+            <a href="#sostenibilidad" class="block text-sm font-medium text-apple-muted hover:text-white mobile-link">SOSTENIBILIDAD</a>
+            <a href="#contacto" class="block text-sm font-medium text-apple-muted hover:text-white mobile-link">CONTACTO</a>
+            <a href="#musica" class="block text-sm font-medium text-white hover:text-white mobile-link">MÚSICA AMBIENTAL</a>
+        </div>
+    </header>
+
+    <main class="pt-16">
+        <!-- Hero Tipográfico con Manifiesto de Marca -->
+        <section class="min-h-[85vh] flex flex-col items-center justify-center text-center px-6 py-24 max-w-4xl mx-auto">
+            <span class="text-xs font-semibold tracking-widest text-apple-muted uppercase mb-6">Manifiesto 2026</span>
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight leading-[1.1] mb-8 text-white">
+                La forma del silencio. <br>Menos artificio, más esencia.
+            </h1>
+            <p class="text-lg md:text-xl text-apple-muted font-light max-w-2xl leading-relaxed mb-12">
+                AURA crea indumentaria de alta gama donde la pureza de las líneas y la honestidad de los materiales definen una elegancia atemporal y despojada de ruido.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 items-center">
+                <a href="#esencia" class="inline-block border border-white text-white px-8 py-3 text-xs tracking-widest uppercase hover:bg-white hover:text-black transition-all duration-300">
+                    Conocer la Marca
+                </a>
+                <a href="#musica" class="inline-block border border-apple-border text-apple-muted px-8 py-3 text-xs tracking-widest uppercase hover:border-white hover:text-white transition-all duration-300">
+                    Control de Música
+                </a>
+            </div>
+        </section>
+
+        <!-- Sección: Nuestra Historia / Esencia (Con la imagen Clothes.png integrada) -->
+        <section id="esencia" class="py-32 border-t border-apple-border">
+            <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <span class="text-xs font-semibold tracking-widest text-apple-muted uppercase block mb-4">Nuestra Historia</span>
+                    <h2 class="text-3xl md:text-4xl font-light tracking-tight mb-6 text-white">
+                        El arte de la reducción y el diseño consciente.
+                    </h2>
+                    <p class="text-apple-muted leading-relaxed font-light mb-6">
+                        Fundada bajo el principio de que el verdadero lujo reside en la simplicidad y el confort absoluto, AURA rechaza el ciclo acelerado de las tendencias efímeras. Cada prenda es concebida como un objeto de diseño perdurable, donde la estructura arquitectónica del patrón prioriza el cuerpo humano por encima del adorno.
+                    </p>
+                    <p class="text-apple-muted leading-relaxed font-light">
+                        Trabajamos directamente con talleres artesanales locales y maestros sastres que heredan técnicas centenarias, garantizando acabados impecables y un respeto absoluto por el oficio textil.
+                    </p>
+                </div>
+                <div class="bg-apple-card w-full flex flex-col border border-apple-border overflow-hidden">
+                    <!-- Imagen cargada: Clothes.png -->
+                    <img src="./Clothes.png" alt="Colección AURA — Prendas y Accesorios" class="w-full h-auto object-contain">
+                    <div class="px-5 py-3 border-t border-apple-border flex items-center justify-between text-xs text-apple-muted">
+                        <span>Archivo de Colección — Estudio Textil</span>
+                        <a href="./Clothes.png" download="Clothes.png" class="text-white hover:underline tracking-wider uppercase text-[11px]">
+                            Ver / Descargar Imagen
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección: Filosofía -->
+        <section id="filosofia" class="py-32 bg-apple-card border-t border-apple-border">
+            <div class="max-w-5xl mx-auto px-6 text-center">
+                <span class="text-xs font-semibold tracking-widest text-apple-muted uppercase block mb-4">Filosofía</span>
+                <h2 class="text-3xl md:text-5xl font-light tracking-tight mb-16 max-w-3xl mx-auto text-white">
+                    Pilares que guían cada puntada.
+                </h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-left">
+                    <div class="bg-black p-8 border border-apple-border">
+                        <span class="text-xs text-apple-muted font-mono mb-4 block">01 / CALIDAD</span>
+                        <h3 class="text-lg font-medium mb-3 text-white">Materiales Nobles</h3>
+                        <p class="text-sm text-apple-muted font-light leading-relaxed">
+                            Selección exclusiva de linos orgánicos, lanas vírgenes y sedas puras procedentes de fuentes éticas y trazables.
+                        </p>
+                    </div>
+                    <div class="bg-black p-8 border border-apple-border">
+                        <span class="text-xs text-apple-muted font-mono mb-4 block">02 / TIEMPO</span>
+                        <h3 class="text-lg font-medium mb-3 text-white">Atemporalidad</h3>
+                        <p class="text-sm text-apple-muted font-light leading-relaxed">
+                            Diseños libres de temporadas que trascienden modas pasajeras, pensados para acompañar al portador durante décadas.
+                        </p>
+                    </div>
+                    <div class="bg-black p-8 border border-apple-border">
+                        <span class="text-xs text-apple-muted font-mono mb-4 block">03 / ÉTICA</span>
+                        <h3 class="text-lg font-medium mb-3 text-white">Producción Justa</h3>
+                        <p class="text-sm text-apple-muted font-light leading-relaxed">
+                            Compromiso absoluto con cadenas de suministro transparentes, salarios dignos y condiciones de trabajo óptimas.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección: Nuestros Espacios (Boutiques) -->
+        <section id="boutiques" class="py-32 border-t border-apple-border">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="max-w-2xl mb-16">
+                    <span class="text-xs font-semibold tracking-widest text-apple-muted uppercase block mb-4">Ubicaciones</span>
+                    <h2 class="text-3xl md:text-4xl font-light tracking-tight mb-4 text-white">
+                        Nuestros Espacios
+                    </h2>
+                    <p class="text-apple-muted font-light">
+                        Entornos arquitectónicos concebidos como galerías minimalistas donde experimentar el tacto y la caída de nuestros materiales. Visitas con o sin cita previa.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Tienda 1 -->
+                    <div class="border border-apple-border p-8 bg-apple-card">
+                        <h3 class="text-xl font-medium mb-2 text-white">Madrid</h3>
+                        <p class="text-xs font-mono text-apple-muted uppercase tracking-wider mb-6">Barrio de Salamanca</p>
+                        <p class="text-sm text-apple-muted font-light mb-4">Calle de Serrano 42, 1º Izquierda</p>
+                        <div class="text-xs text-white font-light space-y-1 mb-6 border-t border-apple-border pt-4">
+                            <p>Lunes a Viernes: 10:00 – 20:00</p>
+                            <p>Sábados: 11:00 – 15:00</p>
+                        </div>
+                        <span class="inline-block text-xs uppercase tracking-widest border-b border-white pb-0.5 text-white">Atención Privada Disponible</span>
+                    </div>
+
+                    <!-- Tienda 2 -->
+                    <div class="border border-apple-border p-8 bg-apple-card">
+                        <h3 class="text-xl font-medium mb-2 text-white">Ciudad de México</h3>
+                        <p class="text-xs font-mono text-apple-muted uppercase tracking-wider mb-6">Polanco</p>
+                        <p class="text-sm text-apple-muted font-light mb-4">Avenida Presidente Masaryk 310</p>
+                        <div class="text-xs text-white font-light space-y-1 mb-6 border-t border-apple-border pt-4">
+                            <p>Lunes a Sábado: 11:00 – 19:00</p>
+                            <p>Domingos: Cerrado</p>
+                        </div>
+                        <span class="inline-block text-xs uppercase tracking-widest border-b border-white pb-0.5 text-white">Atención Privada Disponible</span>
+                    </div>
+
+                    <!-- Tienda 3 -->
+                    <div class="border border-apple-border p-8 bg-apple-card">
+                        <h3 class="text-xl font-medium mb-2 text-white">Buenos Aires</h3>
+                        <p class="text-xs font-mono text-apple-muted uppercase tracking-wider mb-6">Recoleta</p>
+                        <p class="text-sm text-apple-muted font-light mb-4">Quintana 450</p>
+                        <div class="text-xs text-white font-light space-y-1 mb-6 border-t border-apple-border pt-4">
+                            <p>Lunes a Viernes: 10:30 – 19:30</p>
+                            <p>Sábados: 10:00 – 14:00</p>
+                        </div>
+                        <span class="inline-block text-xs uppercase tracking-widest border-b border-white pb-0.5 text-white">Atención Privada Disponible</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección: Sostenibilidad -->
+        <section id="sostenibilidad" class="py-32 bg-apple-card border-t border-apple-border">
+            <div class="max-w-4xl mx-auto px-6 text-center">
+                <span class="text-xs font-semibold tracking-widest text-apple-muted uppercase block mb-4">Sostenibilidad</span>
+                <h2 class="text-3xl md:text-5xl font-light tracking-tight mb-8 text-white">
+                    Compromiso con el futuro de los recursos.
+                </h2>
+                <p class="text-lg text-apple-muted font-light leading-relaxed mb-12">
+                    Creemos que la verdadera sostenibilidad comienza por la durabilidad física y estética de lo que producimos. Reducimos el desperdicio textil mediante patrones de corte cero y utilizamos embalajes 100% biodegradables y libres de plásticos.
+                </p>
+                <div class="inline-block border border-apple-border px-6 py-3 text-xs tracking-widest uppercase text-white">
+                    Informe de Transparencia 2026 Disponible en Tiendas
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección: Contacto / Información General -->
+        <section id="contacto" class="py-32 border-t border-apple-border">
+            <div class="max-w-4xl mx-auto px-6 text-center">
+                <span class="text-xs font-semibold tracking-widest text-apple-muted uppercase block mb-4">Atención y Prensa</span>
+                <h2 class="text-3xl md:text-4xl font-light tracking-tight mb-6 text-white">
+                    Contacto Corporativo
+                </h2>
+                <p class="text-apple-muted font-light mb-12 max-w-xl mx-auto">
+                    Para consultas de prensa, citas privadas en nuestros estudios o relaciones institucionales, nuestro equipo atiende a través de los siguientes canales:
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-8 text-sm font-medium">
+                    <div>
+                        <span class="block text-xs text-apple-muted font-mono mb-1">GENERAL</span>
+                        <a href="mailto:info@aura-atelier.com" class="text-white hover:underline">info@aura-atelier.com</a>
+                    </div>
+                    <div>
+                        <span class="block text-xs text-apple-muted font-mono mb-1">PRENSA</span>
+                        <a href="mailto:press@aura-atelier.com" class="text-white hover:underline">press@aura-atelier.com</a>
+                    </div>
+                    <div>
+                        <span class="block text-xs text-apple-muted font-mono mb-1">BOUTIQUES</span>
+                        <a href="mailto:concierge@aura-atelier.com" class="text-white hover:underline">concierge@aura-atelier.com</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Final: Reproductor de Música Ambiental (Pausar, Volumen Suave y Descargar) -->
+        <section id="musica" class="py-20 bg-apple-card border-t border-apple-border">
+            <div class="max-w-4xl mx-auto px-6">
+                <div class="border border-apple-border bg-black p-8 md:p-10">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8 pb-6 border-b border-apple-border">
+                        <div>
+                            <div class="flex items-center gap-2.5 mb-2">
+                                <span id="status-dot" class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                                <span id="status-text" class="text-xs font-mono uppercase tracking-widest text-apple-muted">
+                                    Música Ambiental — Volumen Suave (20%)
+                                </span>
+                            </div>
+                            <h2 class="text-2xl font-light tracking-tight text-white">
+                                Ambientación Sonora AURA
+                            </h2>
+                            <p class="text-xs text-apple-muted font-mono mt-1">
+                                Pista: mus_Pueblo_1_Noche-hidden.wav
+                            </p>
+                        </div>
+
+                        <!-- Botones principales: Pausar/Reproducir y Descargar -->
+                        <div class="flex flex-wrap items-center gap-4">
+                            <button id="play-pause-btn" type="button" class="flex items-center gap-3 bg-white text-black px-6 py-3 text-xs font-semibold tracking-widest uppercase hover:bg-neutral-200 transition-colors">
+                                <!-- Icono Pause (por defecto) / Play -->
+                                <svg id="icon-play" class="w-4 h-4 hidden" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z"></path>
+                                </svg>
+                                <svg id="icon-pause" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path>
+                                </svg>
+                                <span id="play-pause-label">Pausar Música</span>
+                            </button>
+
+                            <a href="./mus_Pueblo_1_Noche-hidden.wav" download="mus_Pueblo_1_Noche-hidden.wav" class="flex items-center gap-2.5 border border-white text-white px-6 py-3 text-xs font-medium tracking-widest uppercase hover:bg-white hover:text-black transition-colors">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4"></path>
+                                </svg>
+                                <span>Descargar Audio</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Controles detallados: Barra de progreso y Volumen -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+                        <!-- Progreso de la pista -->
+                        <div class="md:col-span-2 space-y-2">
+                            <div class="flex justify-between text-xs font-mono text-apple-muted">
+                                <span>PROGRESO DE PISTA</span>
+                                <span><span id="current-time">0:00</span> / <span id="total-duration">0:00</span></span>
+                            </div>
+                            <input id="seek-slider" type="range" min="0" max="100" value="0" step="0.1" class="w-full" aria-label="Progreso de la canción">
+                        </div>
+
+                        <!-- Control de Volumen (preconfigurado bajo al 20%) -->
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-xs font-mono text-apple-muted">
+                                <span>VOLUMEN</span>
+                                <span id="volume-label">20% (Suave)</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <button id="mute-btn" type="button" class="text-apple-muted hover:text-white transition-colors" aria-label="Silenciar o activar sonido">
+                                    <svg id="icon-vol" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M11 5L6 9H2v6h4l5 4V5zM15.54 8.46a5 5 0 010 7.07"></path>
+                                    </svg>
+                                </button>
+                                <input id="volume-slider" type="range" min="0" max="1" step="0.01" value="0.20" class="w-full" aria-label="Control de volumen">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Elemento de audio HTML5 -->
+                    <audio id="bg-music" src="./mus_Pueblo_1_Noche-hidden.wav" preload="auto" loop>
+                        <source src="./mus_Pueblo_1_Noche-hidden.wav" type="audio/wav">
+                    </audio>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Pie de página (Footer) minimalista -->
+    <footer class="border-t border-apple-border py-16 bg-apple-bg text-apple-muted text-xs">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="text-white font-semibold tracking-widest uppercase">
+                A U R A
+            </div>
+            <div class="flex flex-wrap justify-center gap-6 font-light">
+                <a href="#" class="hover:text-white transition-colors">Privacidad</a>
+                <a href="#" class="hover:text-white transition-colors">Términos de Servicio</a>
+                <a href="#" class="hover:text-white transition-colors">Código de Conducta</a>
+                <a href="#" class="hover:text-white transition-colors">Instagram</a>
+                <a href="#" class="hover:text-white transition-colors">LinkedIn</a>
+            </div>
+            <div class="font-light">
+                &copy; 2026 AURA Atelier. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script de interacción móvil y control de música ambiental -->
+    <script>
+        // Menú móvil
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Reproductor de música ambiental (volumen bajo por defecto: 20%)
+        const audio = document.getElementById('bg-music');
+        const playPauseBtn = document.getElementById('play-pause-btn');
+        const playPauseLabel = document.getElementById('play-pause-label');
+        const iconPlay = document.getElementById('icon-play');
+        const iconPause = document.getElementById('icon-pause');
+        const statusDot = document.getElementById('status-dot');
+        const navAudioDot = document.getElementById('nav-audio-dot');
+        const statusText = document.getElementById('status-text');
+        const seekSlider = document.getElementById('seek-slider');
+        const currentTimeEl = document.getElementById('current-time');
+        const totalDurationEl = document.getElementById('total-duration');
+        const volumeSlider = document.getElementById('volume-slider');
+        const volumeLabel = document.getElementById('volume-label');
+        const muteBtn = document.getElementById('mute-btn');
+
+        // Configurar volumen inicial suave (20%)
+        const DEFAULT_VOLUME = 0.20;
+        audio.volume = DEFAULT_VOLUME;
+        let userPausedManually = false;
+
+        function formatTime(seconds) {
+            if (!isFinite(seconds) || seconds < 0) return '0:00';
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+        }
+
+        function updatePlayerUI() {
+            const pct = Math.round((audio.muted ? 0 : audio.volume) * 100);
+            if (!audio.paused) {
+                iconPlay.classList.add('hidden');
+                iconPause.classList.remove('hidden');
+                playPauseLabel.textContent = 'Pausar Música';
+                statusDot.className = 'w-2 h-2 rounded-full bg-emerald-400 animate-pulse';
+                navAudioDot.className = 'w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse';
+                statusText.textContent = `Reproduciendo — Volumen (${pct}%)`;
+            } else {
+                iconPlay.classList.remove('hidden');
+                iconPause.classList.add('hidden');
+                playPauseLabel.textContent = 'Reproducir Música';
+                statusDot.className = 'w-2 h-2 rounded-full bg-neutral-500';
+                navAudioDot.className = 'w-1.5 h-1.5 rounded-full bg-neutral-500';
+                statusText.textContent = 'Música en Pausa — Lista para reproducir';
+            }
+        }
+
+        function updateVolumeUI() {
+            const pct = Math.round((audio.muted ? 0 : audio.volume) * 100);
+            let tag = '';
+            if (pct === 0) tag = ' (Silenciado)';
+            else if (pct <= 25) tag = ' (Suave)';
+            volumeLabel.textContent = `${pct}%${tag}`;
+            updatePlayerUI();
+        }
+
+        // Intentar reproducir suavemente al cargar; si el navegador requiere interacción previa,
+        // iniciar en el primer clic/toque a menos que el usuario haya pausado manualmente.
+        function tryAutoPlay() {
+            audio.play().then(() => {
+                updatePlayerUI();
+                removeAutoplayListeners();
+            }).catch(() => {
+                updatePlayerUI();
+            });
+        }
+
+        function onFirstInteraction(e) {
+            if (userPausedManually) {
+                removeAutoplayListeners();
+                return;
+            }
+            if (e.target && playPauseBtn.contains(e.target)) {
+                removeAutoplayListeners();
+                return;
+            }
+            if (audio.paused) {
+                audio.play().then(() => {
+                    updatePlayerUI();
+                }).catch(() => {});
+            }
+            removeAutoplayListeners();
+        }
+
+        function removeAutoplayListeners() {
+            document.removeEventListener('click', onFirstInteraction);
+            document.removeEventListener('keydown', onFirstInteraction);
+            document.removeEventListener('touchstart', onFirstInteraction);
+        }
+
+        document.addEventListener('click', onFirstInteraction, { passive: true });
+        document.addEventListener('keydown', onFirstInteraction, { passive: true });
+        document.addEventListener('touchstart', onFirstInteraction, { passive: true });
+
+        window.addEventListener('DOMContentLoaded', tryAutoPlay);
+
+        // Botón Reproducir / Pausar
+        playPauseBtn.addEventListener('click', () => {
+            if (audio.paused) {
+                userPausedManually = false;
+                audio.play();
+            } else {
+                userPausedManually = true;
+                audio.pause();
+            }
+            updatePlayerUI();
+        });
+
+        audio.addEventListener('play', updatePlayerUI);
+        audio.addEventListener('pause', updatePlayerUI);
+
+        // Actualizar duración y barra de progreso
+        audio.addEventListener('loadedmetadata', () => {
+            totalDurationEl.textContent = formatTime(audio.duration);
+        });
+
+        audio.addEventListener('timeupdate', () => {
+            currentTimeEl.textContent = formatTime(audio.currentTime);
+            if (audio.duration) {
+                seekSlider.value = (audio.currentTime / audio.duration) * 100;
+            }
+        });
+
+        seekSlider.addEventListener('input', () => {
+            if (audio.duration) {
+                audio.currentTime = (seekSlider.value / 100) * audio.duration;
+            }
+        });
+
+        // Control de volumen
+        volumeSlider.addEventListener('input', () => {
+            audio.muted = false;
+            audio.volume = parseFloat(volumeSlider.value);
+            updateVolumeUI();
+        });
+
+        muteBtn.addEventListener('click', () => {
+            audio.muted = !audio.muted;
+            updateVolumeUI();
+        });
+    </script>
+</body>
+</html>
